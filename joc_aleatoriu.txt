@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<Title>Title:Piatra, hartie, foarfece</Title>
+	</head>
+	<body>
+		<script>
+		
+		
+		i= 0
+		var win= 0;
+		var lose= 0;
+		var draw = 0;
+		
+		while (i == 0){
+		var phf= ["piatra", "hartie", "foarfece"]
+		var jucator2= phf[Math.floor(Math.random()*phf.length)];
+		var jucator1= prompt("Alege intre: piatra, hartie, foarfece.")
+		
+		//cancel the game
+		if(jucator1==null){
+				alert("Joc anulat");
+				break;
+		}
+
+		//alert("Ai ales: " + jucator1 + ", PC - " + jucator2)
+
+		switch(jucator2){
+			case "piatra":
+				switch(jucator1){
+					case "piatra":
+						pdraw();
+						break;
+					case "hartie":
+						pwin();
+						break;
+					case "foarfece":
+						plose();
+						break;
+					default:
+						tryAgain();
+				}
+				break;
+			case "foarfece":
+				switch(jucator1){
+					case "piatra":
+						pwin();
+						break;
+					case "hartie":
+						plose();
+						break;
+					case "foarfece":
+						pdraw();
+						break;
+					default:
+						tryAgain();
+				}
+				break;
+			case "hartie":
+				switch(jucator1){
+					case "piatra":
+						plose();
+						break;
+					case "hartie":
+						pdraw();
+						break;
+					case "foarfece":
+						pwin();
+						break;
+					default:
+						tryAgain();
+				}
+				break;
+
+		}
+
+		function tryAgain(){
+			alert("Ai scris gresit, te rog tasteaza o singura varianta: piatra, hartie, sau foarfece");
+		}
+		
+		function pwin(){
+		win++;
+		alert("Ai ales: " +jucator1+" iar PC-ul a ales: " + jucator2 + ".\n\nAi casticat ?? \n\nCastiguri: "+win+"\nPierderi: " +lose+"\nRemize: "+draw);
+		}
+		
+		function plose(){
+		lose++;
+		alert("Ai ales: " +jucator1+" iar PC-ul a ales: " + jucator2 + ".\n\nAi pierdut ?? \n\nCastiguri: "+win+"\nPierderi: " +lose+"\nRemize: "+draw);
+		}
+		
+		function pdraw(){
+		draw++;
+		alert("Ai ales: " +jucator1+" iar PC-ul a ales: " + jucator2 + ".\n\nRemiza ?? \n\nCastiguri: "+win+"\nPierderi: " +lose+"\nRemize: "+draw);
+		}
+		
+		
+	}
+	
+	
+		</script>
+	</body>
+</html>

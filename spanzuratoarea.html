@@ -1,0 +1,58 @@
+
+<html>
+<head>
+	<title> Joc Spanzuratoarea </title>
+</head>
+<body>
+	<h1> Joc Spanzuratoarea </h1>
+	<script>
+	
+	//un jucator introduce un cuvant iar alt jucator trebuie sa-l ghiceasca
+	var cuvant = prompt("Introdu un cuvant");
+	var vect_rasp = [];
+	
+	for ( var i=0; i<cuvant.lenght; i++){
+		vect_rasp[i] = "_";
+	}
+	
+	var litere_ramase = cuvant.length;
+	var vieti= 3;
+
+	while ( litere_ramase > 0 && vieti > 0){
+		alert(vect_rasp.join(" ") + "        Cuvantul are " + cuvant.length + " litere" + " -> Numar vieti: " + vieti);     //progresul jocului
+		var litera = prompt("Alege o litere sau apasa cancel pentru a termina jocul");
+
+		if(litera == null){
+			break;
+		} 
+		
+		else if (litera.length !== 1){
+			alert("Te rog sa introduci doar o singura litera");
+		} else {
+			for(var j=0; j< cuvant.length; j++){		//update vect_rasp
+				if(cuvant[j] === litera){
+					vect_rasp[j] = litera;
+					litere_ramase --;
+				}
+			}
+			if (cuvant.indexOf(litera, 0) == -1){
+				vieti--;
+			}
+			if (vieti == 0){
+				alert("Joc pierdut, raspunsul era: " + cuvant);
+				break;
+			} 
+
+		}
+
+	}
+	
+	if( litere_ramase <= 0){
+		//alert(vect_rasp.join(" "));
+		alert("Felicitari! raspunsul este: " + cuvant);
+	}
+	
+
+	</script>
+</body>
+</html>
